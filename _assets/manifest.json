@@ -1,0 +1,693 @@
+{
+  "size": [
+    128,
+    128
+  ],
+  "style": "white with transparency; tint with Godot modulate",
+  "categories": {
+    "tokens": [
+      {
+        "name": "solid_disc",
+        "svg": "tokens/solid_disc.svg",
+        "png": "tokens/solid_disc.png",
+        "note": ""
+      },
+      {
+        "name": "open_ring",
+        "svg": "tokens/open_ring.svg",
+        "png": "tokens/open_ring.png",
+        "note": ""
+      },
+      {
+        "name": "nested_rings",
+        "svg": "tokens/nested_rings.svg",
+        "png": "tokens/nested_rings.png",
+        "note": ""
+      },
+      {
+        "name": "center_pip",
+        "svg": "tokens/center_pip.svg",
+        "png": "tokens/center_pip.png",
+        "note": ""
+      },
+      {
+        "name": "split_disc",
+        "svg": "tokens/split_disc.svg",
+        "png": "tokens/split_disc.png",
+        "note": ""
+      },
+      {
+        "name": "diamond",
+        "svg": "tokens/diamond.svg",
+        "png": "tokens/diamond.png",
+        "note": ""
+      },
+      {
+        "name": "filled_diamond",
+        "svg": "tokens/filled_diamond.svg",
+        "png": "tokens/filled_diamond.png",
+        "note": ""
+      },
+      {
+        "name": "kite",
+        "svg": "tokens/kite.svg",
+        "png": "tokens/kite.png",
+        "note": ""
+      },
+      {
+        "name": "triangle",
+        "svg": "tokens/triangle.svg",
+        "png": "tokens/triangle.png",
+        "note": ""
+      },
+      {
+        "name": "inverted_triangle",
+        "svg": "tokens/inverted_triangle.svg",
+        "png": "tokens/inverted_triangle.png",
+        "note": ""
+      },
+      {
+        "name": "hexagon",
+        "svg": "tokens/hexagon.svg",
+        "png": "tokens/hexagon.png",
+        "note": ""
+      },
+      {
+        "name": "octagon",
+        "svg": "tokens/octagon.svg",
+        "png": "tokens/octagon.png",
+        "note": ""
+      },
+      {
+        "name": "capsule",
+        "svg": "tokens/capsule.svg",
+        "png": "tokens/capsule.png",
+        "note": ""
+      },
+      {
+        "name": "lozenge",
+        "svg": "tokens/lozenge.svg",
+        "png": "tokens/lozenge.png",
+        "note": ""
+      },
+      {
+        "name": "cross",
+        "svg": "tokens/cross.svg",
+        "png": "tokens/cross.png",
+        "note": ""
+      },
+      {
+        "name": "four_petals",
+        "svg": "tokens/four_petals.svg",
+        "png": "tokens/four_petals.png",
+        "note": ""
+      },
+      {
+        "name": "clover",
+        "svg": "tokens/clover.svg",
+        "png": "tokens/clover.png",
+        "note": ""
+      },
+      {
+        "name": "crescent",
+        "svg": "tokens/crescent.svg",
+        "png": "tokens/crescent.png",
+        "note": ""
+      },
+      {
+        "name": "eclipse",
+        "svg": "tokens/eclipse.svg",
+        "png": "tokens/eclipse.png",
+        "note": ""
+      },
+      {
+        "name": "spiral",
+        "svg": "tokens/spiral.svg",
+        "png": "tokens/spiral.png",
+        "note": ""
+      },
+      {
+        "name": "orbit",
+        "svg": "tokens/orbit.svg",
+        "png": "tokens/orbit.png",
+        "note": ""
+      },
+      {
+        "name": "hourglass",
+        "svg": "tokens/hourglass.svg",
+        "png": "tokens/hourglass.png",
+        "note": ""
+      },
+      {
+        "name": "pinwheel",
+        "svg": "tokens/pinwheel.svg",
+        "png": "tokens/pinwheel.png",
+        "note": ""
+      },
+      {
+        "name": "sunburst",
+        "svg": "tokens/sunburst.svg",
+        "png": "tokens/sunburst.png",
+        "note": ""
+      }
+    ],
+    "frames": [
+      {
+        "name": "circle",
+        "svg": "frames/circle.svg",
+        "png": "frames/circle.png",
+        "note": ""
+      },
+      {
+        "name": "double_circle",
+        "svg": "frames/double_circle.svg",
+        "png": "frames/double_circle.png",
+        "note": ""
+      },
+      {
+        "name": "dashed_circle",
+        "svg": "frames/dashed_circle.svg",
+        "png": "frames/dashed_circle.png",
+        "note": ""
+      },
+      {
+        "name": "segmented_circle",
+        "svg": "frames/segmented_circle.svg",
+        "png": "frames/segmented_circle.png",
+        "note": ""
+      },
+      {
+        "name": "square",
+        "svg": "frames/square.svg",
+        "png": "frames/square.png",
+        "note": ""
+      },
+      {
+        "name": "rounded_square",
+        "svg": "frames/rounded_square.svg",
+        "png": "frames/rounded_square.png",
+        "note": ""
+      },
+      {
+        "name": "double_square",
+        "svg": "frames/double_square.svg",
+        "png": "frames/double_square.png",
+        "note": ""
+      },
+      {
+        "name": "diamond",
+        "svg": "frames/diamond.svg",
+        "png": "frames/diamond.png",
+        "note": ""
+      },
+      {
+        "name": "hexagon",
+        "svg": "frames/hexagon.svg",
+        "png": "frames/hexagon.png",
+        "note": ""
+      },
+      {
+        "name": "octagon",
+        "svg": "frames/octagon.svg",
+        "png": "frames/octagon.png",
+        "note": ""
+      },
+      {
+        "name": "corner_brackets",
+        "svg": "frames/corner_brackets.svg",
+        "png": "frames/corner_brackets.png",
+        "note": ""
+      },
+      {
+        "name": "mid_brackets",
+        "svg": "frames/mid_brackets.svg",
+        "png": "frames/mid_brackets.png",
+        "note": ""
+      },
+      {
+        "name": "broken_ring",
+        "svg": "frames/broken_ring.svg",
+        "png": "frames/broken_ring.png",
+        "note": ""
+      },
+      {
+        "name": "notched_square",
+        "svg": "frames/notched_square.svg",
+        "png": "frames/notched_square.png",
+        "note": ""
+      },
+      {
+        "name": "soft_scallop",
+        "svg": "frames/soft_scallop.svg",
+        "png": "frames/soft_scallop.png",
+        "note": ""
+      },
+      {
+        "name": "cardinal_ticks",
+        "svg": "frames/cardinal_ticks.svg",
+        "png": "frames/cardinal_ticks.png",
+        "note": ""
+      }
+    ],
+    "conduits": [
+      {
+        "name": "thin_straight",
+        "svg": "conduits/thin_straight.svg",
+        "png": "conduits/thin_straight.png",
+        "note": ""
+      },
+      {
+        "name": "bold_straight",
+        "svg": "conduits/bold_straight.svg",
+        "png": "conduits/bold_straight.png",
+        "note": ""
+      },
+      {
+        "name": "double_straight",
+        "svg": "conduits/double_straight.svg",
+        "png": "conduits/double_straight.png",
+        "note": ""
+      },
+      {
+        "name": "triple_straight",
+        "svg": "conduits/triple_straight.svg",
+        "png": "conduits/triple_straight.png",
+        "note": ""
+      },
+      {
+        "name": "dashed_straight",
+        "svg": "conduits/dashed_straight.svg",
+        "png": "conduits/dashed_straight.png",
+        "note": ""
+      },
+      {
+        "name": "dotted_straight",
+        "svg": "conduits/dotted_straight.svg",
+        "png": "conduits/dotted_straight.png",
+        "note": ""
+      },
+      {
+        "name": "wire_straight",
+        "svg": "conduits/wire_straight.svg",
+        "png": "conduits/wire_straight.png",
+        "note": ""
+      },
+      {
+        "name": "wire_paired",
+        "svg": "conduits/wire_paired.svg",
+        "png": "conduits/wire_paired.png",
+        "note": ""
+      },
+      {
+        "name": "pipe_straight",
+        "svg": "conduits/pipe_straight.svg",
+        "png": "conduits/pipe_straight.png",
+        "note": ""
+      },
+      {
+        "name": "pipe_ribbed",
+        "svg": "conduits/pipe_ribbed.svg",
+        "png": "conduits/pipe_ribbed.png",
+        "note": ""
+      },
+      {
+        "name": "sleeved_straight",
+        "svg": "conduits/sleeved_straight.svg",
+        "png": "conduits/sleeved_straight.png",
+        "note": ""
+      },
+      {
+        "name": "beaded_straight",
+        "svg": "conduits/beaded_straight.svg",
+        "png": "conduits/beaded_straight.png",
+        "note": ""
+      },
+      {
+        "name": "elbow",
+        "svg": "conduits/elbow.svg",
+        "png": "conduits/elbow.png",
+        "note": ""
+      },
+      {
+        "name": "rounded_elbow",
+        "svg": "conduits/rounded_elbow.svg",
+        "png": "conduits/rounded_elbow.png",
+        "note": ""
+      },
+      {
+        "name": "double_elbow",
+        "svg": "conduits/double_elbow.svg",
+        "png": "conduits/double_elbow.png",
+        "note": ""
+      },
+      {
+        "name": "tee",
+        "svg": "conduits/tee.svg",
+        "png": "conduits/tee.png",
+        "note": ""
+      },
+      {
+        "name": "round_tee",
+        "svg": "conduits/round_tee.svg",
+        "png": "conduits/round_tee.png",
+        "note": ""
+      },
+      {
+        "name": "cross",
+        "svg": "conduits/cross.svg",
+        "png": "conduits/cross.png",
+        "note": ""
+      },
+      {
+        "name": "ring_cross",
+        "svg": "conduits/ring_cross.svg",
+        "png": "conduits/ring_cross.png",
+        "note": ""
+      },
+      {
+        "name": "y_split",
+        "svg": "conduits/y_split.svg",
+        "png": "conduits/y_split.png",
+        "note": ""
+      },
+      {
+        "name": "s_curve",
+        "svg": "conduits/s_curve.svg",
+        "png": "conduits/s_curve.png",
+        "note": ""
+      },
+      {
+        "name": "wave",
+        "svg": "conduits/wave.svg",
+        "png": "conduits/wave.png",
+        "note": ""
+      },
+      {
+        "name": "zigzag",
+        "svg": "conduits/zigzag.svg",
+        "png": "conduits/zigzag.png",
+        "note": ""
+      },
+      {
+        "name": "braided",
+        "svg": "conduits/braided.svg",
+        "png": "conduits/braided.png",
+        "note": ""
+      }
+    ],
+    "nodes": [
+      {
+        "name": "plain_hub",
+        "svg": "nodes/plain_hub.svg",
+        "png": "nodes/plain_hub.png",
+        "note": ""
+      },
+      {
+        "name": "open_hub",
+        "svg": "nodes/open_hub.svg",
+        "png": "nodes/open_hub.png",
+        "note": ""
+      },
+      {
+        "name": "radial_hub",
+        "svg": "nodes/radial_hub.svg",
+        "png": "nodes/radial_hub.png",
+        "note": ""
+      },
+      {
+        "name": "spoked_hub",
+        "svg": "nodes/spoked_hub.svg",
+        "png": "nodes/spoked_hub.png",
+        "note": ""
+      },
+      {
+        "name": "three_port",
+        "svg": "nodes/three_port.svg",
+        "png": "nodes/three_port.png",
+        "note": ""
+      },
+      {
+        "name": "four_port",
+        "svg": "nodes/four_port.svg",
+        "png": "nodes/four_port.png",
+        "note": ""
+      },
+      {
+        "name": "six_port",
+        "svg": "nodes/six_port.svg",
+        "png": "nodes/six_port.png",
+        "note": ""
+      },
+      {
+        "name": "socket",
+        "svg": "nodes/socket.svg",
+        "png": "nodes/socket.png",
+        "note": ""
+      },
+      {
+        "name": "split_socket",
+        "svg": "nodes/split_socket.svg",
+        "png": "nodes/split_socket.png",
+        "note": ""
+      },
+      {
+        "name": "valve",
+        "svg": "nodes/valve.svg",
+        "png": "nodes/valve.png",
+        "note": ""
+      },
+      {
+        "name": "coil",
+        "svg": "nodes/coil.svg",
+        "png": "nodes/coil.png",
+        "note": ""
+      },
+      {
+        "name": "capacitor",
+        "svg": "nodes/capacitor.svg",
+        "png": "nodes/capacitor.png",
+        "note": ""
+      },
+      {
+        "name": "lattice",
+        "svg": "nodes/lattice.svg",
+        "png": "nodes/lattice.png",
+        "note": ""
+      },
+      {
+        "name": "nested_square",
+        "svg": "nodes/nested_square.svg",
+        "png": "nodes/nested_square.png",
+        "note": ""
+      },
+      {
+        "name": "three_lobes",
+        "svg": "nodes/three_lobes.svg",
+        "png": "nodes/three_lobes.png",
+        "note": ""
+      },
+      {
+        "name": "iris",
+        "svg": "nodes/iris.svg",
+        "png": "nodes/iris.png",
+        "note": ""
+      }
+    ],
+    "accents": [
+      {
+        "name": "single_pip",
+        "svg": "accents/single_pip.svg",
+        "png": "accents/single_pip.png",
+        "note": ""
+      },
+      {
+        "name": "double_pip",
+        "svg": "accents/double_pip.svg",
+        "png": "accents/double_pip.png",
+        "note": ""
+      },
+      {
+        "name": "triple_pip",
+        "svg": "accents/triple_pip.svg",
+        "png": "accents/triple_pip.png",
+        "note": ""
+      },
+      {
+        "name": "four_pips",
+        "svg": "accents/four_pips.svg",
+        "png": "accents/four_pips.png",
+        "note": ""
+      },
+      {
+        "name": "nine_pips",
+        "svg": "accents/nine_pips.svg",
+        "png": "accents/nine_pips.png",
+        "note": ""
+      },
+      {
+        "name": "small_plus",
+        "svg": "accents/small_plus.svg",
+        "png": "accents/small_plus.png",
+        "note": ""
+      },
+      {
+        "name": "small_cross",
+        "svg": "accents/small_cross.svg",
+        "png": "accents/small_cross.png",
+        "note": ""
+      },
+      {
+        "name": "short_dash",
+        "svg": "accents/short_dash.svg",
+        "png": "accents/short_dash.png",
+        "note": ""
+      },
+      {
+        "name": "slash",
+        "svg": "accents/slash.svg",
+        "png": "accents/slash.png",
+        "note": ""
+      },
+      {
+        "name": "chevron",
+        "svg": "accents/chevron.svg",
+        "png": "accents/chevron.png",
+        "note": ""
+      },
+      {
+        "name": "double_chevron",
+        "svg": "accents/double_chevron.svg",
+        "png": "accents/double_chevron.png",
+        "note": ""
+      },
+      {
+        "name": "asterisk",
+        "svg": "accents/asterisk.svg",
+        "png": "accents/asterisk.png",
+        "note": ""
+      },
+      {
+        "name": "spark",
+        "svg": "accents/spark.svg",
+        "png": "accents/spark.png",
+        "note": ""
+      },
+      {
+        "name": "small_target",
+        "svg": "accents/small_target.svg",
+        "png": "accents/small_target.png",
+        "note": ""
+      },
+      {
+        "name": "quarter_arcs",
+        "svg": "accents/quarter_arcs.svg",
+        "png": "accents/quarter_arcs.png",
+        "note": ""
+      },
+      {
+        "name": "ticks",
+        "svg": "accents/ticks.svg",
+        "png": "accents/ticks.png",
+        "note": ""
+      }
+    ],
+    "textures": [
+      {
+        "name": "parallel_lines",
+        "svg": "textures/parallel_lines.svg",
+        "png": "textures/parallel_lines.png",
+        "note": ""
+      },
+      {
+        "name": "vertical_lines",
+        "svg": "textures/vertical_lines.svg",
+        "png": "textures/vertical_lines.png",
+        "note": ""
+      },
+      {
+        "name": "diagonal_hatch",
+        "svg": "textures/diagonal_hatch.svg",
+        "png": "textures/diagonal_hatch.png",
+        "note": ""
+      },
+      {
+        "name": "cross_hatch",
+        "svg": "textures/cross_hatch.svg",
+        "png": "textures/cross_hatch.png",
+        "note": ""
+      },
+      {
+        "name": "dot_field",
+        "svg": "textures/dot_field.svg",
+        "png": "textures/dot_field.png",
+        "note": ""
+      },
+      {
+        "name": "offset_dots",
+        "svg": "textures/offset_dots.svg",
+        "png": "textures/offset_dots.png",
+        "note": ""
+      },
+      {
+        "name": "grid",
+        "svg": "textures/grid.svg",
+        "png": "textures/grid.png",
+        "note": ""
+      },
+      {
+        "name": "broken_grid",
+        "svg": "textures/broken_grid.svg",
+        "png": "textures/broken_grid.png",
+        "note": ""
+      },
+      {
+        "name": "waves",
+        "svg": "textures/waves.svg",
+        "png": "textures/waves.png",
+        "note": ""
+      },
+      {
+        "name": "chevrons",
+        "svg": "textures/chevrons.svg",
+        "png": "textures/chevrons.png",
+        "note": ""
+      },
+      {
+        "name": "concentric",
+        "svg": "textures/concentric.svg",
+        "png": "textures/concentric.png",
+        "note": ""
+      },
+      {
+        "name": "radial",
+        "svg": "textures/radial.svg",
+        "png": "textures/radial.png",
+        "note": ""
+      },
+      {
+        "name": "lozenges",
+        "svg": "textures/lozenges.svg",
+        "png": "textures/lozenges.png",
+        "note": ""
+      },
+      {
+        "name": "slots",
+        "svg": "textures/slots.svg",
+        "png": "textures/slots.png",
+        "note": ""
+      },
+      {
+        "name": "rings",
+        "svg": "textures/rings.svg",
+        "png": "textures/rings.png",
+        "note": ""
+      },
+      {
+        "name": "fracture",
+        "svg": "textures/fracture.svg",
+        "png": "textures/fracture.png",
+        "note": ""
+      }
+    ]
+  }
+}

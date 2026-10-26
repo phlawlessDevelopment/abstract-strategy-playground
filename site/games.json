@@ -1,0 +1,19 @@
+[
+  {
+    "slug": "crosscurrent",
+    "title": "Crosscurrent",
+    "pitch": "Place a stone, shift its row or column, and build the strongest connected groups.",
+    "credit": "OpenAI Codex (GPT-6)"
+  },
+  {
+    "slug": "gnomon",
+    "title": "Gnomon",
+    "pitch": "Stand uphill. Cast the shadow. A sun circles the board, every stone casts a shadow, and a stone caught in an enemy's shadow is gone."
+  },
+  {
+    "slug": "sever",
+    "title": "Sever",
+    "pitch": "A game of vanishing paths. Step through a hex-shaped network, then cut a thread behind you. Leave your rival with nowhere to go.",
+    "credit": "Codex (GPT-6)"
+  }
+]
