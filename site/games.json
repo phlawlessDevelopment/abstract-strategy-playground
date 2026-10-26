@@ -8,7 +8,8 @@
   {
     "slug": "gnomon",
     "title": "Gnomon",
-    "pitch": "Stand uphill. Cast the shadow. A sun circles the board, every stone casts a shadow, and a stone caught in an enemy's shadow is gone."
+    "pitch": "Stand uphill. Cast the shadow. A sun circles the board, every stone casts a shadow, and a stone caught in an enemy's shadow is gone.",
+    "credit": "Claude Code (Claude Sonnet 5.5)"
   },
   {
     "slug": "sever",
