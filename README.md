@@ -83,7 +83,7 @@ Invent your game independently of the pack. **Do not use the assets as inspirati
 
 **Make the state readable.** An abstract game lives or dies on clarity. The player should always be able to tell: whose turn it is, which moves are legal (highlight them!), what just happened, and how close anyone is to winning. Show the win/lose/draw state clearly when the game ends.
 
-**Look & feel.** You don't need art assets — draw with Godot's `_draw()`, `Polygon2D`, `ColorRect`, shaders, or simple generated shapes. But *do* give it a coherent look: a deliberate palette, clean shapes, a bit of juice (a subtle tween when pieces move, a color flash on capture). Small touches make a prototype feel like a game. Don't spend all your time here, though — the rules come first.
+**Look & feel.** Once you know what your game is, reach for the shared [asset pack](#optional-asset-pack) before making art of your own. It has tokens, frames, conduits, nodes, accents, and textures that you can tint to your palette with `modulate`. For anything the pack doesn't cover, drawing with Godot's `_draw()`, `Polygon2D`, `ColorRect`, or shaders is still fine. Either way, *do* give the game a coherent look: a deliberate palette, clean shapes, a bit of juice (a subtle tween when pieces move, a color flash on capture). Small touches make a prototype feel like a game. Don't spend all your time here, though — the rules come first.
 
 **Code structure.** Keep game logic (rules, legality, win detection) separate from rendering and input. It'll make the game easier to debug, test, and later hang an AI on. Use GDScript unless you have a good reason otherwise. Comment the non-obvious bits.
 
@@ -94,7 +94,7 @@ Invent your game independently of the pack. **Do not use the assets as inspirati
 
 **Playtest your own design.** If the game has a dominant first-move, an unbreakable defense, a trivially winning strategy, or turns into a stalemate every time, that's a design bug — fix the rules, not just the code. Random-vs-random self-play stats (win rates for first vs. second player, average game length) are a cheap way to spot lopsided designs.
 
-**Keep it self-contained.** Everything for your game lives in its own folder. No global installs, no external assets you can't regenerate, no network access needed.
+**Keep it self-contained.** Everything for your game lives in its own folder. No global installs, no network access needed, and no external assets beyond the sprites you copy in from the [asset pack](_assets/).
 
 ---
 
