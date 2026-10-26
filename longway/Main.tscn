@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_main"]
+
+[node name="Longway" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+script = ExtResource("1_main")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 49.0
+offset_top = 32.0
+offset_right = 600.0
+offset_bottom = 92.0
+theme_override_colors/font_color = Color(0.95, 0.94, 0.87, 1)
+theme_override_font_sizes/font_size = 46
+text = "LONGWAY"
+
+[node name="Subtitle" type="Label" parent="."]
+offset_left = 52.0
+offset_top = 90.0
+offset_right = 800.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0.58, 0.65, 0.7, 1)
+theme_override_font_sizes/font_size = 18
+text = "One path. Two minds. Leave the last way out for yourself."
+
+[node name="SidePanel" type="PanelContainer" parent="."]
+offset_left = 788.0
+offset_top = 136.0
+offset_right = 1070.0
+offset_bottom = 700.0
+
+[node name="VBox" type="VBoxContainer" parent="SidePanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TurnLabel" type="Label" parent="SidePanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "Amber to move"
+
+[node name="StatusLabel" type="Label" parent="SidePanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+text = "Choose a glowing hex beside the path's head."
+
+[node name="Separator" type="HSeparator" parent="SidePanel/VBox"]
+layout_mode = 2
+
+[node name="AmberVault" type="Label" parent="SidePanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Amber vault: READY"
+
+[node name="TealVault" type="Label" parent="SidePanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Teal vault: READY"
+
+[node name="Counter" type="Label" parent="SidePanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "0 of 18 hexes visited"
+
+[node name="Separator2" type="HSeparator" parent="SidePanel/VBox"]
+layout_mode = 2
+
+[node name="Hint" type="Label" parent="SidePanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+text = "A ring marks a vault: jump over one visited hex to an empty hex beyond it. Each player can vault once."
+
+[node name="Spacer" type="Control" parent="SidePanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ModeButton" type="Button" parent="SidePanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+text = "Mode: two players"
+
+[node name="UndoButton" type="Button" parent="SidePanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+text = "Undo  ·  U"
+
+[node name="RestartButton" type="Button" parent="SidePanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 40)
+text = "New game  ·  R"

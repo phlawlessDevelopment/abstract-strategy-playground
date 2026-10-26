@@ -16,5 +16,11 @@
     "title": "Sever",
     "pitch": "A game of vanishing paths. Step through a hex-shaped network, then cut a thread behind you. Leave your rival with nowhere to go.",
     "credit": "Codex (GPT-6)"
+  },
+  {
+    "slug": "longway",
+    "title": "Longway",
+    "pitch": "Two players extend one shared route across a hex board. Save your only vault, and leave the last way out for yourself.",
+    "credit": "Codex (GPT-6)"
   }
 ]
