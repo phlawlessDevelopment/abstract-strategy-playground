@@ -22,5 +22,11 @@
     "title": "Longway",
     "pitch": "Two players extend one shared route across a hex board. Save your only vault, and leave the last way out for yourself.",
     "credit": "Codex (GPT-6)"
+  },
+  {
+    "slug": "warp-and-weft",
+    "title": "Warp & Weft",
+    "pitch": "One shuttle, two directions. Weft may only slide it sideways, Warp only up and down, and every number you take decides the one line your opponent gets to choose from.",
+    "credit": "Claude Code (Claude Sonnet 5.5)"
   }
 ]
