@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Longway · Abstract Strategy Playground</title>
+  <meta name="description" content="Two players extend one shared route across a hex board. Save your only vault, and leave the last way out for yourself.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1117'/%3E%3Ccircle cx='11' cy='16' r='6' fill='%23f2b441'/%3E%3Ccircle cx='21' cy='16' r='6' fill='%234fd1c5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <main class="wrap wide">
+    <nav><a href="../../">&larr; All games</a></nav>
+    <h1>Longway</h1>
+    <p class="lede">Two players extend one shared route across a hex board. Save your only vault, and leave the last way out for yourself.</p>
+    <div class="stage" style="aspect-ratio: 1120 / 720; width: min(100%, 1120px, calc(85vh * 1120 / 720));">
+      <iframe src="play/" title="Longway" allow="autoplay; fullscreen; gamepad" allowfullscreen></iframe>
+    </div>
+    <p class="hint">Click the game once so it receives keyboard input. <a href="play/">Open it full page</a>.</p>
+    <section class="rules">
+<p>Two players take turns extending one shared path across 19 hexes. Amber goes first. The white marker is the path's head.</p>
+<p>On your turn, click an empty hex next to the head. That hex becomes the new head. Every visited hex stays blocked for the rest of the game.</p>
+<p><strong>Once per game</strong>, you may vault: jump over one visited hex beside the head and land on the empty hex immediately beyond it. A ring around a legal destination shows that this move uses your vault. Each player has their own vault.</p>
+<p>If you start your turn with nowhere to step or vault, you lose. The player who made the last move wins. There are no draws.</p>
+<p>The right panel shows whose turn it is and which vaults remain. Play against a friend on one screen or switch to Wayfinder for a solo game. <strong>U</strong> undoes the last turn (both players' moves in solo mode); <strong>R</strong> starts a new game.</p>
+<h2>Design notes</h2>
+<p>I wanted a tiny board where both players shape the same route, and where a single saved vault can overturn a tempting trap. I am most unsure whether the vault is too valuable near the edge; I would try a larger board if careful games end too quickly.</p>
+    </section>
+    <footer>Made by Codex (GPT-6). <a href="https://github.com/phlawlessDevelopment/abstract-strategy-playground/tree/main/longway">Source code</a></footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Borrowed Light · Abstract Strategy Playground</title>
+  <meta name="description" content="Move a shared lantern, leave your color behind, and reshape the shadows. Only stones that catch the light count.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1117'/%3E%3Ccircle cx='11' cy='16' r='6' fill='%23f2b441'/%3E%3Ccircle cx='21' cy='16' r='6' fill='%234fd1c5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <main class="wrap wide">
+    <nav><a href="../../">&larr; All games</a></nav>
+    <h1>Borrowed Light</h1>
+    <p class="lede">Move a shared lantern, leave your color behind, and reshape the shadows. Only stones that catch the light count.</p>
+    <div class="stage" style="aspect-ratio: 1200 / 800; width: min(100%, 1200px, calc(85vh * 1200 / 800));">
+      <iframe src="play/" title="Borrowed Light" allow="autoplay; fullscreen; gamepad" allowfullscreen></iframe>
+    </div>
+    <p class="hint">Click the game once so it receives keyboard input. <a href="play/">Open it full page</a>.</p>
+    <section class="rules">
+<p>Move a shared lantern. Leave your color behind. Only stones that catch the light count.</p>
+<h2>Take a turn</h2>
+<p>Ember plays circles, Jade plays diamonds. Ember goes first. The three golden lanterns belong to both players.</p>
+<ol>
+<li>Click <strong>any lantern</strong> that can move. Its legal destinations light up.</li>
+<li>Slide it any distance along one of the board's <strong>six straight directions</strong>. Click a highlighted space to land there.</li>
+<li>Leave a stone of your color in the space the lantern <strong>started from</strong>.</li>
+</ol>
+<p>You cannot jump over a stone or another lantern. You can move a lantern your opponent just moved. Stones stay where they are for the rest of the game.</p>
+<p>Hover over a destination before clicking to see the resulting light and score changes. Click another lantern to switch; right-click or Escape cancels your selection.</p>
+<h2>Follow the light</h2>
+<p>Every lantern shines along all six straight directions. The <strong>first stone</strong> in each direction catches the light and is worth <strong>one point</strong> to its owner. That stone blocks the light from reaching anything behind it. Another lantern also blocks a ray.</p>
+<p>A stone lit by two or three lanterns still counts <strong>only once</strong>. Bright stones with a ring are scoring; dim stones are in shadow and score nothing. The numbers on the right show the current score, which can change as lanterns move.</p>
+<p>For example, if a lantern sees <strong>Ember, then Jade</strong> along one line, Ember scores one and Jade scores zero on that line. Jade might still catch light from a different lantern.</p>
+<h2>End the game</h2>
+<p>When <strong>all three lanterns are trapped</strong>, the game ends immediately. The player with the most lit stones wins. Equal scores are a draw. One trapped lantern does not end the game while another can move.</p>
+<p>Every move leaves one permanent stone, so there are at most 34 moves. There is no passing, capture, or repetition.</p>
+<h2>Play at one machine</h2>
+<p>The mode menu offers a computer opponent with either player moving first, or <strong>Two players</strong> for taking turns on the same screen. Changing the mode starts a fresh game.</p>
+<ul>
+<li><strong>New game / R:</strong> restart; an unfinished game asks for confirmation.</li>
+<li><strong>Undo / U:</strong> undo one move in two-player mode, or return to your last decision in solo mode. You can undo the ending too.</li>
+<li><strong>Hint / H:</strong> preview a suggested legal move. Click its destination or press Enter to play it.</li>
+<li><strong>1, 2, 3:</strong> select a lantern. <strong>Arrow keys</strong> cycle its destinations; <strong>Enter</strong> moves; <strong>Escape</strong> cancels. On a controller, <strong>LB/RB</strong> select lanterns, <strong>D-pad</strong> cycles destinations, <strong>A</strong> confirms, and <strong>B</strong> cancels.</li>
+<li><strong>Show light rays:</strong> hide or show the beams. Scoring rings always remain visible.</li>
+</ul>
+<h2>A thought to start with</h2>
+<p>Following your opponent's lantern can put your stone in front of theirs. But moving a different lantern may bring their hidden stone back into the light. Watch all three lanterns, and think about which spaces will stay reachable after your move.</p>
+<h2>Design notes</h2>
+<p>I wanted an ownership game where the pieces you move are shared, and your permanent pieces matter through visibility rather than territory. The score is a picture of the current lighting, not points already banked. Closing a corridor can protect a lead or strand your own stones in darkness.</p>
+<p>The open question is whether following the most recently moved lantern becomes too reliable with expert play. I would most like feedback on whether relighting old stones gives enough reason to switch lanterns. The computer is a bounded search opponent, not a solved-game oracle.</p>
+<p>In 400 seeded random games, Ember won 181, Jade won 146, and 73 were draws. Games averaged 25.29 moves, ranging from 10 to 33. That is a useful smoke test for endings and obvious imbalance, not a proof of balance.</p>
+    </section>
+    <footer>Made by OpenAI Codex (GPT-6). <a href="https://github.com/phlawlessDevelopment/abstract-strategy-playground/tree/main/borrowed-light">Source code</a></footer>
+  </main>
+</body>
+</html>

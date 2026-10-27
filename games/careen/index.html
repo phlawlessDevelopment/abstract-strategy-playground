@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Careen · Abstract Strategy Playground</title>
+  <meta name="description" content="Drop a stone, and your opponent decides which way the tray tilts. Everything slides, and any stone caught between two enemies is crushed.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1117'/%3E%3Ccircle cx='11' cy='16' r='6' fill='%23f2b441'/%3E%3Ccircle cx='21' cy='16' r='6' fill='%234fd1c5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <main class="wrap wide">
+    <nav><a href="../../">&larr; All games</a></nav>
+    <h1>Careen</h1>
+    <p class="lede">Drop a stone, and your opponent decides which way the tray tilts. Everything slides, and any stone caught between two enemies is crushed.</p>
+    <div class="stage" style="aspect-ratio: 1280 / 820; width: min(100%, 1280px, calc(85vh * 1280 / 820));">
+      <iframe src="play/" title="Careen" allow="autoplay; fullscreen; gamepad" allowfullscreen></iframe>
+    </div>
+    <p class="hint">Click the game once so it receives keyboard input. <a href="play/">Open it full page</a>.</p>
+    <section class="rules">
+<p><em>Drop a stone, and your opponent decides which way the tray tilts.</em></p>
+<p>Imagine a flat square tray, six cells by six, with nothing on it. You and I each have eleven stones: <strong>Amber</strong> has circles, <strong>Teal</strong> has diamonds. Amber goes first.</p>
+<h2>How to play</h2>
+<p><strong>Your turn is two things, in this order:</strong></p>
+<ol>
+<li><strong>Tilt</strong> the tray: north, east, south or west. Every stone on it slides as far as it can go that way. A stone stops when it meets a wall or another stone. Stones never jump over each other, so the order they sit in along a line never changes.</li>
+<li><strong>Drop</strong> one of your stones onto any empty cell.</li>
+</ol>
+<p>That is the whole turn. (On the very first turn the tray is empty, so Amber only drops.)</p>
+<p><strong>The twist is who tilts what.</strong> Your dropped stone sits exactly where you put it, but <em>you don't tilt again</em>. Your opponent does, at the start of their turn, and they pick whichever direction suits them. So a stone is only as good as its worst future: before you drop, you are really asking "what happens to this if they go north? east? south? west?"</p>
+<p><strong>Crushing.</strong> When a tilt has finished sliding, look at every stone. If a stone has an <strong>enemy stone directly on both sides of it</strong>, either left and right or above and below, it is crushed and removed. Walls are not enemies, so a stone against a wall is safe on that line. A stone with a friend next to it on a line is also safe on that line.</p>
+<p>All the crushes in one look happen at the same moment. Then everything slides again the same way (the gaps may have closed up), and you look again. Keep going until nothing more is crushed. A single tilt can set off a little avalanche. Stones of <em>both</em> colours can be crushed by the same tilt, including your own, so tilting is not free.</p>
+<p><strong>Ending.</strong> Teal drops the very last stone. Then Amber, who would have been next, makes one final tilt and the game is over. Now count. <strong>The player who lost fewer stones wins.</strong> Equal losses are a draw.</p>
+<h2>What the screen shows</h2>
+<ul>
+<li>The four arrows around the tray are the tilts. Hover one to see where every stone would end up (outlines) and which would be crushed (red crosses). With <strong>Hints</strong> on, each arrow also shows the net result for you: <strong>+1</strong> means a tilt crushes one more of their stones than yours.</li>
+<li>When you are about to drop, hover an empty cell. The arrows then show what each of <em>their</em> tilts would do to you if you dropped there, and the worst one is drawn on the tray.</li>
+<li>White corner brackets mark the stone dropped last. The cards show stones still in hand and stones lost.</li>
+</ul>
+<h2>Controls</h2>
+<p>Mouse: click an arrow to tilt (or use the <strong>arrow keys</strong>), then click an empty cell to drop. <strong>R</strong> new game, <strong>U</strong> undo (back to the start of your turn), <strong>H</strong> hints on/off, <strong>F1</strong> rules. Play against the computer (Easy, Medium or Hard) as either colour, or two players on one screen.</p>
+<h2>A few things worth knowing</h2>
+<ul>
+<li>A stone alone in the middle of a row is a target. Two of your stones side by side are safe along that row, but a tilt can slide them into a different column where they are not.</li>
+<li>Every tilt is a decision too. Sometimes all four directions hurt you, and the best you can do is pick the one that hurts least and then drop a stone that makes <em>their</em> tilts worse.</li>
+<li>Stones are never added back. Every crush is permanent, so a lead of one stone late in the game is worth a lot.</li>
+</ul>
+<hr />
+<h2>Design notes</h2>
+<p><strong>What I was going for.</strong> I wanted a game where one move is shared between two people. The usual structure is "I move, you respond". Here the dropper commits to a stone and the <em>other</em> player chooses how the whole world shifts before it matters, a bit like "I cut, you choose". It gives two kinds of decision: where to drop (look at four futures at once) and which way to tilt (one of four, usually all with a catch). The physics is deliberately tiny: slide, then check for a stone caught between two enemies.</p>
+<p><strong>What I measured</strong> (computer vs computer on the 6 x 6 tray, 11 stones each; the numbers come from <code>tools/selfplay.gd</code>):</p>
+<ul>
+<li><em>Thinking beats luck.</em> A player looking one whole turn ahead beat a random player in 99.6% of games. Two turns ahead beat one turn ahead 97%, and three beat two 83% to 4.5% (the rest were draws). That is where the Easy / Medium / Hard levels come from.</li>
+<li><em>Stones per player decided how often games end in a draw.</em> Between two-turn-ahead players, 7 stones on a 5 x 5 tray gave 52% draws, 9 stones on 6 x 6 gave 32%, and 11 stones on 6 x 6 gave 17.5%. More stones on the tray means more crushes (about 9 per game at 11 stones) and fewer stalemates.</li>
+<li><em>The first player is not favoured between careful players,</em> but is between shallow ones. At two turns ahead Amber took 53% of the decisive games, and at three turns ahead (112 games) exactly 50%, with 12.5% draws. At one turn ahead Amber won about 85% of them: the player who drops first always has one stone more on the tray when the other tilts, which matters if you cannot see your own next tilt coming. The more carefully both sides think, the less this matters.</li>
+<li><em>Variants I tried and dropped.</em> Posts (fixed obstacles) in three symmetric layouts cut crushes to 3-5 per game and favoured Amber (57-66% of decisive games), so the tray is empty. A rule that forbids repeating the previous tilt direction did not reduce draws and made Amber's edge bigger (67%). Giving Teal a second final tilt reduced draws to 21% but handed Teal the last word (Amber took only 33% of decisive games), so only Amber gets the closing tilt.</li>
+</ul>
+<p><strong>What I'm unsure about.</strong></p>
+<ul>
+<li><strong>Nobody but computers has played it yet.</strong> I know the game does not collapse and that lookahead pays off. I do not yet know whether the first few quiet turns, when nothing can be crushed, feel like setup or like waiting.</li>
+<li><strong>Hints may do too much.</strong> The numbers on the arrows are a one-turn lookahead handed to you for free. They are the best way to learn the game, but you may want to switch them off.</li>
+<li><strong>Is the drop-then-opponent-tilts structure clear enough?</strong> It is simple once you have seen it, and a little strange the first time.</li>
+<li><strong>Draws are 12-17% between careful computers.</strong> Humans will probably blunder more, but a rule that breaks ties might help.</li>
+</ul>
+<p><strong>Ideas I'd try next.</strong> A tray that is not square (the geometry decides which lines are safe). Crushing a <em>line</em> of two stones when both ends are enemies. A pie rule for the first drop. Letting the dropper place two stones on some turns. Larger trays with more stones, if the computer could search them quickly enough.</p>
+    </section>
+    <footer>Made by Claude Code (Claude Sonnet 5.5). <a href="https://github.com/phlawlessDevelopment/abstract-strategy-playground/tree/main/careen">Source code</a></footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gnomon · Abstract Strategy Playground</title>
+  <meta name="description" content="Stand uphill. Cast the shadow. A sun circles the board, every stone casts a shadow, and a stone caught in an enemy&#x27;s shadow is gone.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1117'/%3E%3Ccircle cx='11' cy='16' r='6' fill='%23f2b441'/%3E%3Ccircle cx='21' cy='16' r='6' fill='%234fd1c5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <main class="wrap wide">
+    <nav><a href="../../">&larr; All games</a></nav>
+    <h1>Gnomon</h1>
+    <p class="lede">Stand uphill. Cast the shadow. A sun circles the board, every stone casts a shadow, and a stone caught in an enemy&#x27;s shadow is gone.</p>
+    <div class="stage" style="aspect-ratio: 1280 / 820; width: min(100%, 1280px, calc(85vh * 1280 / 820));">
+      <iframe src="play/" title="Gnomon" allow="autoplay; fullscreen; gamepad" allowfullscreen></iframe>
+    </div>
+    <p class="hint">Click the game once so it receives keyboard input. <a href="play/">Open it full page</a>.</p>
+    <section class="rules">
+<p><em>Stand uphill. Cast the shadow.</em></p>
+<p>A two-player abstract game about light. A sun circles the board, every stone casts a shadow, and a stone caught in an enemy's shadow is gone. Games take 5–10 minutes.</p>
+<pre><code>godot --path gnomon          # from the playground folder
+</code></pre>
+<p>Click a stone, then a highlighted cell. <strong>R</strong> new game · <strong>U</strong> undo · <strong>H</strong> hints on/off · <strong>S</strong> show tomorrow's shadows · <strong>F1</strong> rules · right-click or <strong>Esc</strong> to deselect. Play against the computer (four levels) or two players on one screen.</p>
+<hr />
+<h2>How to play</h2>
+<p>Imagine we're sitting at a 7×7 board. Amber has five round stones along the bottom, Teal has five diamond stones along the top. Around the board is a dial with a sun on it. Amber moves first.</p>
+<p><strong>Shadows.</strong> Every stone casts a shadow <em>straight away from the sun</em>, two cells long. If the sun is in the north, shadows point south; if it's in the north-east, they point south-west. Shadows run in a straight line, orthogonal or diagonal, and they don't stop at stones.</p>
+<p><strong>Eclipse.</strong> After you move, every <em>enemy</em> stone standing in one of <em>your</em> shadows is eclipsed and removed. Your own shadows never hurt you, and an enemy's shadow only hurts you after <em>they</em> move. So "standing in a shadow" is a threat, not a death: you get a turn to react. Put it another way: whoever is <strong>uphill</strong> (nearer the sun, in line, within two cells) wins that standoff.</p>
+<p><strong>Your turn.</strong> Move one of your stones one step, in any of the 8 directions, onto an empty cell. You must move; you can't pass unless you truly can't.</p>
+<p><strong>The sun turns.</strong> After each round (one move by Amber, one by Teal) the sun moves one notch clockwise, 45°. The standoffs rotate with it: two stones that are safe now may be a death sentence in two rounds, and the other way round. A pair of enemy stones in line within two cells is a ticking clock; the sun's position decides who dies when it arrives, and you can see it coming.</p>
+<p><strong>Dusk.</strong> One full circuit of the sun is a day, 8 rounds. At the end of each day the outermost ring of cells goes dark and any stone on it is lost. The board shrinks 7×7 → 5×5 → 3×3. When the third dusk falls, the game ends.</p>
+<p><strong>Winning.</strong> Eclipse every enemy stone and you win. If the last dusk falls first, whoever has more stones wins; equal is a draw. (Both sides losing their last stones to the same dusk is also a draw.)</p>
+<h3>Reading the board</h3>
+<ul>
+<li><strong>Tinted streaks</strong> are shadows, coloured by their owner. Don't step into the other colour's.</li>
+<li>A stone under a <strong>dark veil with a red ring and "!"</strong> is yours and in an enemy shadow: move it, or break the threat, before they move.</li>
+<li>A stone with a <strong>gold ring and "×"</strong> is theirs and in your shadow: almost any move that leaves your shadow in place takes it.</li>
+<li>A <strong>dashed ring</strong> marks a stone that will be in shadow once the sun turns, if nothing changes.</li>
+<li>The <strong>hollow ring on the dial</strong> is where the sun goes next.</li>
+<li>Pick a stone and the destination dots tell you what the move does: gold = takes a stone and leaves nothing of yours exposed, orange = takes one but exposes you, red = leaves you exposed for nothing, white = quiet. Hover a dot for the details.</li>
+<li>The <strong>red-tinted ring</strong> of cells pulses as dusk approaches.</li>
+</ul>
+<h3>A few things worth knowing</h3>
+<ul>
+<li>Stones a knight's move apart (like b2 and c4) are never in line, so they never threaten each other, whatever the sun does.</li>
+<li>The sun starts in the <strong>north</strong>, so Teal begins uphill; Amber has the first move to make up for it. Around round 4 the sun passes south and the advantage swings to Amber. Fights are about the <em>timing</em> of that swing.</li>
+<li>Because the sun is on a fixed schedule, you can always see what the next few rounds will do. Most mistakes are forgetting the sun is about to move.</li>
+<li>Dusk is a second clock. Five stones on the edge need five moves to step inward; you only get one move per round.</li>
+</ul>
+<hr />
+<h2>Design notes</h2>
+<p><strong>What I was going for.</strong> A game where <em>the rules themselves have weather</em>: one shared, perfectly predictable global state (the sun) that every local fight depends on, so the question is never just "can I take that stone?" but "when, and who will be uphill by then?" I wanted decisions that need you to hold a rotating picture in your head, with the rotation public and deterministic so it's a puzzle rather than a gamble, and a shrinking board so nobody can hide.</p>
+<p><strong>What I tried and threw out</strong>, with the numbers from AI-vs-AI games. The AI is a plain alpha-beta search, and all of this is reproducible with the tools below.</p>
+<ul>
+<li><em>Eclipses resolve instantly for both colours after every move.</em> Hard to read (danger only shows when you blunder) and unbalanced: with ordinary alternating turns Teal, who always moves last before the sun turns, won 196 of 240 depth-3 games (82%) across the eight start directions.</li>
+<li><em>Snake turn order</em> (A B | B A | A B, so the sun-turner moves again). Looked like the principled fix, but it made the result swing wildly with the sun's start direction: at depth 2, Amber won 59–1 from one start and lost 3–57 from another.</li>
+<li><em>Shadows only take stones on their owner's move</em> + <em>sun starts in the north</em> was the combination that worked: depth 3 vs depth 3 gave <strong>52–48</strong> over 100 games. Search depth matters far more than side: depth 3 beat depth 2 by 79–19 as Amber and 96–4 as Teal, and depth 4 beat depth 3 by 14–2 and 15–1 (only 16 games each way). That's the "skill beats luck" property I wanted.</li>
+<li>Average game: about 24 plies (12 rounds), so most games end during the second day; dusk matters a lot to anyone who hides.</li>
+</ul>
+<p><strong>What I'm unsure about.</strong></p>
+<ul>
+<li><em>Is it fun for a person, not a search algorithm?</em> The AIs are ruthless about tempo; a human might find the rotation hard to hold in their head. The overlays try to carry that, but I haven't watched a newcomer play.</li>
+<li><em>Shadow length 2 and 5 stones</em> were chosen by feel. I only compared shadow lengths 1–3 under the earlier, instant-eclipse rules (length 1 was lopsided toward Teal, length 3 made games a few plies shorter), never under the final rules. 5 stones means each loss hurts; 6–7 on a bigger board might give more room for strategy.</li>
+<li><em>Fixed start direction.</em> It balances the AI games, but starting angle is a real lever (north: 52–48; south-west: Teal won 39 of 40). A pie rule, where Amber picks the starting sun and Teal picks a side, could be more elegant, but it asks a newcomer to judge something they can't yet evaluate.</li>
+<li><em>Endgames with one stone each</em> become cat-and-mouse. That felt good, but long ones could stall until dusk.</li>
+</ul>
+<p><strong>Ideas I'd try next.</strong> Let players choose the starting sun (pie rule). A second, slower "moon" casting shadows the other way. Stones of different shadow lengths. Hex board with a 6-position sun. A move that lets you spend a stone to hold the sun for a round.</p>
+<hr />
+<h2>For tinkerers</h2>
+<pre><code>godot --headless --path gnomon -s tools/test_rules.gd                    # rules unit tests (7000+ checks)
+godot --headless --path gnomon -s tools/selfplay.gd -- games=100 p1=3 p2=3   # AI vs AI statistics
+godot --headless --path gnomon -s tools/transcript.gd -- depth=3 seed=1  # one game, move by move
+godot --path gnomon -- --autoplay    # watch the computer play both sides in the real UI
+</code></pre>
+<p><code>selfplay</code> options: <code>p1</code>/<code>p2</code> search depth (0 = random), <code>len</code> shadow length, <code>day</code> rounds per day, <code>sun</code> start direction 0–7 (N, NE, E, SE, S, SW, W, NW), <code>snake=1</code>, <code>mover=0</code> (instant-eclipse rule). Game logic lives in <code>scripts/rules.gd</code> with no rendering; <code>scripts/ai.gd</code> is the search; <code>scripts/view.gd</code> draws; <code>scripts/main.gd</code> runs the game.</p>
+    </section>
+    <footer>Made by Claude Code (Claude Sonnet 5.5). <a href="https://github.com/phlawlessDevelopment/abstract-strategy-playground/tree/main/gnomon">Source code</a></footer>
+  </main>
+</body>
+</html>

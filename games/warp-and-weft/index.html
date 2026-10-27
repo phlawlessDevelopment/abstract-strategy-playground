@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Warp &amp; Weft · Abstract Strategy Playground</title>
+  <meta name="description" content="One shuttle, two directions. Weft may only slide it sideways, Warp only up and down, and every number you take decides the one line your opponent gets to choose from.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1117'/%3E%3Ccircle cx='11' cy='16' r='6' fill='%23f2b441'/%3E%3Ccircle cx='21' cy='16' r='6' fill='%234fd1c5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <main class="wrap wide">
+    <nav><a href="../../">&larr; All games</a></nav>
+    <h1>Warp &amp; Weft</h1>
+    <p class="lede">One shuttle, two directions. Weft may only slide it sideways, Warp only up and down, and every number you take decides the one line your opponent gets to choose from.</p>
+    <div class="stage" style="aspect-ratio: 1280 / 820; width: min(100%, 1280px, calc(85vh * 1280 / 820));">
+      <iframe src="play/" title="Warp &amp; Weft" allow="autoplay; fullscreen; gamepad" allowfullscreen></iframe>
+    </div>
+    <p class="hint">Click the game once so it receives keyboard input. <a href="play/">Open it full page</a>.</p>
+    <section class="rules">
+<p><em>One shuttle, two directions.</em></p>
+<p>Imagine a loom. The <strong>warp</strong> threads run up and down; the <strong>weft</strong> threads run side to side. In this game there is a single shuttle on a grid of numbers, and the two of you share it: one player may only push it <strong>sideways</strong> (Weft, red), the other only <strong>up and down</strong> (Warp, blue).</p>
+<h2>How to play</h2>
+<p><strong>Setup.</strong> A 7 × 7 grid of numbers, mostly positive, a few negative. The shuttle sits on the middle cell. The grid is a mirror image of itself across the diagonal (the cell in row 2, column 5 equals the cell in row 5, column 2), so the two players see exactly the same world, turned on its side.</p>
+<p><strong>Your turn.</strong></p>
+<ol>
+<li>Look at the line the shuttle is on. If you are <strong>Weft</strong>, that's its <em>row</em>; if you are <strong>Warp</strong>, its <em>column</em>.</li>
+<li>Slide the shuttle to <strong>any unused cell on that line</strong>. You may hop over cells that are already used.</li>
+<li>You <strong>score the number</strong> on the cell where you land. That cell is now used up.</li>
+</ol>
+<p>That's the whole move. The twist is what it does to your opponent: <strong>the cell you land on decides the only line they get to choose from.</strong> Land on a 9 and you're delighted, until you notice your opponent now has a column with an 8 in it.</p>
+<p><strong>The end.</strong> The game ends the moment the player to move has <strong>no unused cell on their line</strong>. Highest total wins. Cells still left on the board are worth nothing to anyone, so stranding your opponent while you're ahead is a way to win early, and avoiding being stranded while you're behind is part of the fight.</p>
+<p><strong>Komi.</strong> Weft moves first, and picking first from a shared pool is worth around four or five points. So <strong>Warp starts with 4.5 points</strong> already on the scoreboard. The half point means there are no draws.</p>
+<h2>What the screen shows</h2>
+<ul>
+<li>Cells lit in your colour (with threads running your way) are your legal moves.</li>
+<li><strong>Hover</strong> a lit cell to preview the line you'd hand your opponent. With <strong>Hints</strong> on, their best reply is ringed, and the side panel tells you the net result (your gain minus their best reply). If landing there would strand them, it says so, and says who would win.</li>
+<li>Used cells keep the colour of whoever took them and show what was taken, so the finished board reads as a record of the game.</li>
+</ul>
+<h2>Controls</h2>
+<p>Mouse: click a lit cell. <strong>R</strong> new game · <strong>S</strong> same board again · <strong>U</strong> undo · <strong>H</strong> hints on/off · <strong>F1</strong> rules · <strong>Esc</strong> close rules. Play against the computer (Easy, Medium, Hard) as either side, or two players on one screen.</p>
+<h2>A few things worth knowing</h2>
+<ul>
+<li>Taking the biggest number is usually a trap. Look at the line it hands over.</li>
+<li>A <strong>negative number</strong> is sometimes the right move, if every other cell on your line gives your opponent something better.</li>
+<li>As rows and columns fill up, count the unused cells on your opponent's line <em>before</em> you land. The end arrives sooner than it feels like it should.</li>
+</ul>
+<hr />
+<h2>Design notes</h2>
+<p><strong>What I was going for.</strong> One idea, followed all the way down: <em>a single piece that both players control, each along a different axis.</em> Everything else is there to make that idea readable. Each move is two decisions at once, what you gain and what menu you leave behind, and that's where the "can't tell which of these two is better" moments are meant to come from. The loom theme isn't decoration for its own sake: warp and weft really are the two perpendicular directions, and the used-up cells end up woven in both.</p>
+<p><strong>What I measured</strong> (computer vs computer, 7 × 7, boards generated at random; the numbers are from this project's <code>tools/</code>):</p>
+<ul>
+<li><em>First move is strong.</em> With no komi, Weft won 64–86% of games between equal-strength players. Both seats make about the same number of moves, so it isn't tempo; it's simply getting the first pick from a shared pool. With a 4.5 komi, Weft's win rate between equal players was 46%, 55%, 53% and 50% at search depths 1, 2, 4 and 6 (300 games each).</li>
+<li><em>Thinking pays.</em> Looking two moves ahead beat greedy play 80% of the time; four beat two 63%; the Hard level (searching about ten plies, exactly in the endgame) beat the four-ply player in 81% of 80 games. So the game rewards lookahead rather than luck of the board, at least up to the depths I tested.</li>
+<li><em>A variant I threw away.</em> I tried letting used-up cells <em>block</em> a slide instead of being hopped over. Games shrank to about ten moves and deeper search stopped helping, so the hop rule stayed.</li>
+<li><em>A bug worth admitting.</em> My first search had a pruning mistake that made deeper search <em>lose</em> to shallower search. That looked like "the game has no depth", and it was wrong; the fix is checked against a brute-force search in <code>tools/test_rules.gd</code>.</li>
+</ul>
+<p><strong>What I'm unsure about.</strong></p>
+<ul>
+<li><strong>Nobody has played this but computers.</strong> All the evidence above is self-play. I can tell you the game doesn't collapse into a first-player win or a coin-flip; I can't yet tell you it's <em>fun</em>.</li>
+<li><strong>Komi 4.5 is tuned to how people play, not to perfect play.</strong> The first-move edge shrinks as players get stronger (about +5.2 points at two-ply, +4.4 at four, +3.6 at six), so very strong players may find Warp slightly favoured.</li>
+<li><strong>The ending.</strong> A game usually stops with about 20 of the 48 cells still unused. That's the intended "ending is a weapon" idea, but it might feel abrupt, or like the board is being wasted.</li>
+<li><strong>Hints may do too much of the thinking.</strong> With them on, a human sees the two-ply consequence of every move for free. They can be switched off, but I don't know what the right default is.</li>
+<li><strong>Numbers on a grid</strong> might not be the most tactile way to feel "one piece, two owners".</li>
+</ul>
+<p><strong>Ideas I'd try next.</strong> Replace komi with a pie rule (after Weft's first move, Warp may swap seats). Larger boards, or boards that aren't mirror-symmetric, to see whether the balance holds. A shuttle that is allowed to <em>pass</em> once. Cells that change value when they're passed over. Showing a "how many unused cells are on each line" gauge to make stranding easier to see coming.</p>
+    </section>
+    <footer>Made by Claude Code (Claude Sonnet 5.5). <a href="https://github.com/phlawlessDevelopment/abstract-strategy-playground/tree/main/warp-and-weft">Source code</a></footer>
+  </main>
+</body>
+</html>

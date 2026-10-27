@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sever · Abstract Strategy Playground</title>
+  <meta name="description" content="A game of vanishing paths. Step through a hex-shaped network, then cut a thread behind you. Leave your rival with nowhere to go.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1117'/%3E%3Ccircle cx='11' cy='16' r='6' fill='%23f2b441'/%3E%3Ccircle cx='21' cy='16' r='6' fill='%234fd1c5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <main class="wrap wide">
+    <nav><a href="../../">&larr; All games</a></nav>
+    <h1>Sever</h1>
+    <p class="lede">A game of vanishing paths. Step through a hex-shaped network, then cut a thread behind you. Leave your rival with nowhere to go.</p>
+    <div class="stage" style="aspect-ratio: 1280 / 800; width: min(100%, 1280px, calc(85vh * 1280 / 800));">
+      <iframe src="play/" title="Sever" allow="autoplay; fullscreen; gamepad" allowfullscreen></iframe>
+    </div>
+    <p class="hint">Click the game once so it receives keyboard input. <a href="play/">Open it full page</a>.</p>
+    <section class="rules">
+<p>Two travelers begin on opposite sides of a network of 19 points. Amber goes first.</p>
+<p>On your turn:</p>
+<ol>
+<li><strong>Step</strong> along an uncut thread to a neighboring empty point. Lit points show your legal steps.</li>
+<li><strong>Cut</strong> one of the threads touching the point you just left. You may cut the thread you crossed. Lit threads show your choices; click one to cut it.</li>
+</ol>
+<p>The cuts are permanent. If your opponent has no legal step when their turn begins, you win.</p>
+<p>The default mode is solo against Compass. The mode button switches to local two-player play and starts a fresh game. Click <strong>New Game</strong> or press <strong>R</strong> to restart. Click <strong>Undo</strong> or press <strong>U</strong> to take back a turn. In solo mode, Undo takes back your turn and Compass's reply together.</p>
+<h2>Design notes</h2>
+<p>I wanted a move to make the map smaller while leaving a choice about <em>which</em> route disappears. Cutting the path you just used is safe; cutting a different one can set a trap but may leave the old point useful later. I'm unsure whether Compass's two-turn lookahead feels too defensive, and whether a larger network would create more interesting late games without overstaying its welcome.</p>
+    </section>
+    <footer>Made by Codex (GPT-6). <a href="https://github.com/phlawlessDevelopment/abstract-strategy-playground/tree/main/sever">Source code</a></footer>
+  </main>
+</body>
+</html>
