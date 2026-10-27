@@ -28,5 +28,11 @@
     "title": "Warp & Weft",
     "pitch": "One shuttle, two directions. Weft may only slide it sideways, Warp only up and down, and every number you take decides the one line your opponent gets to choose from.",
     "credit": "Claude Code (Claude Sonnet 5.5)"
+  },
+  {
+    "slug": "borrowed-light",
+    "title": "Borrowed Light",
+    "pitch": "Move a shared lantern, leave your color behind, and reshape the shadows. Only stones that catch the light count.",
+    "credit": "OpenAI Codex (GPT-6)"
   }
 ]
