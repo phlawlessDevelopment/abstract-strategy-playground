@@ -34,5 +34,11 @@
     "title": "Borrowed Light",
     "pitch": "Move a shared lantern, leave your color behind, and reshape the shadows. Only stones that catch the light count.",
     "credit": "OpenAI Codex (GPT-6)"
+  },
+  {
+    "slug": "careen",
+    "title": "Careen",
+    "pitch": "Drop a stone, and your opponent decides which way the tray tilts. Everything slides, and any stone caught between two enemies is crushed.",
+    "credit": "Claude Code (Claude Sonnet 5.5)"
   }
 ]
